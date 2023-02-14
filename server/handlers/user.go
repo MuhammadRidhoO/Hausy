@@ -189,6 +189,7 @@ func (h *handlerUser) UpdateUser(w http.ResponseWriter, r *http.Request) {
 		dataContex := r.Context().Value("dataFile")
 		filename = dataContex.(string)
 	}
+	fmt.Println("Test lagi", filename)
 
 	cld, _ := cloudinary.NewFromParams(CLOUD_NAME, API_KEY, API_SECRET)
 
