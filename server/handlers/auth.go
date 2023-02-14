@@ -66,6 +66,7 @@ func (h *handlerAuth) Register(w http.ResponseWriter, r *http.Request) {
 		Gender:    request.Gender,
 		Address:   request.Address,
 		Status:    request.Status,
+		Image: "https://api.dicebear.com/5.x/adventurer/svg?seed="+ request.User_Name,
 	}
 
 	// masukkankan data ke database
