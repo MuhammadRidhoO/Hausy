@@ -233,6 +233,14 @@ func (h *handlerUser) UpdateUser(w http.ResponseWriter, r *http.Request) {
 	if request.Gender != "" {
 		user.Gender = request.Gender
 	}
+	propertyGet, err := h.UserRepository.GetUserLogin(user.Id)
+	propertyGet.Image = os.Getenv("PATH_FILE") + propertyGet.Image
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		response := dto.ErrorResult{Code: http.StatusBadRequest, Message: err.Error()}
+		json.NewEncoder(w).Encode(response)
+		return
+	}
 
 	// store data
 	data, err := h.UserRepository.UpdateUser(user)
