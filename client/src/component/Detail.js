@@ -38,14 +38,14 @@ function Detail({ setCheckHotel, checkHotel }) {
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop:"120px" }}>
                     <div>
                         <img style={{ width: 1000, height: 500 }}
-                            src={"http://localhost:5000/uploads/" + propertys?.image_property}
+                            src={propertys?.image_property}
                             alt=""
                         ></img>
                     </div>
                     <div>
-                        <img src={"http://localhost:5000/uploads/" + propertys?.image_property} className="p-3" style={{ width: 350 }} alt=""></img>
-                        <img src={"http://localhost:5000/uploads/" + propertys?.image_property} className="p-3" style={{ width: 350 }} alt="" ></img>
-                        <img src={"http://localhost:5000/uploads/" + propertys?.image_property} className="p-3" style={{ width: 350 }} alt=""></img>
+                        <img src={propertys?.image_property} className="p-3" style={{ width: 350 }} alt=""></img>
+                        <img src={propertys?.image_property} className="p-3" style={{ width: 350 }} alt="" ></img>
+                        <img src={propertys?.image_property} className="p-3" style={{ width: 350 }} alt=""></img>
                     </div>
                 </div>
                 <div style={{ width: 1018 }}>

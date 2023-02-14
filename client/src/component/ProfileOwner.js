@@ -252,7 +252,7 @@ function ProfileUser() {
                             <div class="mb-3" style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
                                 <div>
                                     <img
-                                        src={"http://localhost:5000/uploads/" + profiles?.image}
+                                        src={profiles?.image}
                                         alt=""
                                         className="imgsize"
                                         style={{ width: "370px", height: "470px", border: "1px solid white", borderRadius: 20 }}
