@@ -255,7 +255,7 @@ function ProfileUser() {
                                 <Form onSubmit={(e) => handleSubmitUser.mutate(e)} style={{ display: "flex", flexDirection: "column" }} >
                                     <Button
                                         type="submit"
-                                        onSubmit={refetch().handleChangePhoto}
+                                        onSubmit={handleChangePhoto}
                                         className="position-relative p-0 m-0"
                                         style={{ backgroundColor: "#5A57AB", width: "370px" }}
                                     >
