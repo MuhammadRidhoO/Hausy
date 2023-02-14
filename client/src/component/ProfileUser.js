@@ -17,11 +17,16 @@ function ProfileUser() {
     const handleEdit = () => setEdit(true);
     const handleCloseEdit = () => setEdit(false);
 
-    let { data: profiles,refetch } = useQuery("ProfileUserTenantView", async () => {
+    let { data: profiles, refetch } = useQuery("ProfileUserTenantView", async () => {
         const response = await API.get("profile")
         return response.data.data
     })
     refetch()
+    // let { data: users  } = useQuery("ProfileUseruserTenantView", async () => {
+    //     const response = await API.get("/user/"+ profiles.id)
+    //     return response.data.data
+    // })
+    // refetch()
 
     const [password, setPassword] = useState({
         oldPassword: "",
@@ -51,13 +56,13 @@ function ProfileUser() {
     const [formAddPhoto, setFormAddPhoto] = useState({
         image: "",
     });
+    // console.log(formAddPhoto)
 
     const handleChangePhoto = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         setFormAddPhoto({
             ...formAddPhoto,
-            [e.target.name]:
-                e.target.type === "file" ? e.target.files : e.target.value,
+            [e.target.name]: e.target.type === "file" ? e.target.files : e.target.value,
         });
     };
 
@@ -88,7 +93,7 @@ function ProfileUser() {
         status: "",
         gender: ""
     });
-
+// console.log(editProfile)
     const handleChangeEditProfile = (e) => {
         e.preventDefault();
         setEditProfile({
@@ -112,7 +117,7 @@ function ProfileUser() {
             dataEditProfileTenant.set("address", editProfile.address);
             dataEditProfileTenant.set("gender", editProfile.gender);
 
-            const response = await API.patch(`/userr/${profiles?.id}`, dataEditProfileTenant, config);
+            const response = await API.patch(`userr/${profiles?.id}`, dataEditProfileTenant, config);
             console.log(response);
             Navigate("/profile_user")
         } catch (error) {
@@ -121,7 +126,7 @@ function ProfileUser() {
     });
 
     useEffect(() => {
-       
+
     }, [setFormAddPhoto])
 
     return (
@@ -248,30 +253,30 @@ function ProfileUser() {
                                         src={profiles?.image}
                                         alt=""
                                         className="imgsize"
-                                        style={{ width: "370px", height: "470px", border: "1px solid white", borderRadius: 20, objectFit:"cover" }}
+                                        style={{ width: "370px", height: "470px", border: "1px solid white", borderRadius: 20, objectFit: "cover" }}
                                     />
                                 </div>
                                 <label for="formFile" class="form-label"></label>
                                 <Form onSubmit={(e) => handleSubmitUser.mutate(e)} style={{ display: "flex", flexDirection: "column" }} >
                                     <Button
                                         type="submit"
-                                        onSubmit={handleChangePhoto}
+                                        // onSubmit={handleChangePhoto}
                                         className="position-relative p-0 m-0"
                                         style={{ backgroundColor: "#5A57AB", width: "370px" }}
                                     >
-                                        <input
-                                            className="d-block position-absolute h-100 w-100"
-                                            id="formFile"
-                                            type="file"
-                                            name="image"
-                                            onChange={handleChangePhoto}
-                                            style={{ cursor: "pointer", opacity: 0 }}
-
-                                        />
                                         <span className="d-block py-2 px-3">
-                                            Upload Image
+                                            Upload Images
                                         </span>
                                     </Button>
+                                    <input
+                                        // className="d-block position-absolute h-100 w-100"
+                                        id="formFile"
+                                        type="file"
+                                        name="image"
+                                        onChange={handleChangePhoto}
+                                        style={{ cursor: "pointer", opacity: 0,backgroundColor: "#5A57AB", width: "370px"  }}
+
+                                    />
                                 </Form>
                                 <Button
                                     style={{ marginTop: 10, backgroundColor: "#5A57AB" }}
@@ -335,7 +340,7 @@ function ProfileUser() {
                                             </Form.Group>
                                             <div style={{ display: "flex", justifyContent: "center" }}>
                                                 <Button type="submit" variant="primary" style={{ width: 300 }}
-                                                    onClick={handleCloseEdit}
+                                                    // onClick={handleCloseEdit}
                                                 >
                                                     Save Changes
                                                 </Button>
