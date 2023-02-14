@@ -149,10 +149,6 @@ func (h *handlerUser) CreateUser(w http.ResponseWriter, r *http.Request) {
 // Update data
 func (h *handlerUser) UpdateUser(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	var ctx = context.Background()
-	var CLOUD_NAME = os.Getenv("CLOUD_NAME")
-	var API_KEY = os.Getenv("API_KEY")
-	var API_SECRET = os.Getenv("API_SECRET")
 	request := usersdto.Update_Request_User{
 		Full_Name: r.FormValue("full_name"),
 		User_Name: r.FormValue("user_name"),
@@ -182,28 +178,34 @@ func (h *handlerUser) UpdateUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	dataContex := r.Context().Value("Error")
-	var filename string
-	if dataContex == nil {
-		// image
-		dataContex := r.Context().Value("dataFile")
-		filename = dataContex.(string)
+	dataContex := r.Context().Value("userImage")
+	var filepath string
+	if dataContex.(string) != "" {
+		filepath = dataContex.(string)
 	}
-	fmt.Println("Test lagi", filename)
 
+	// create empty context
+	var ctx = context.Background()
+
+	// setup cloudinary credentials
+	var CLOUD_NAME = os.Getenv("CLOUD_NAME")
+	var API_KEY = os.Getenv("API_KEY")
+	var API_SECRET = os.Getenv("API_SECRET")
+
+	// create new instance of cloudinary object using cloudinary credentials
 	cld, _ := cloudinary.NewFromParams(CLOUD_NAME, API_KEY, API_SECRET)
 
-	// Upload file to Cloudinary ...
-	resp, err := cld.Upload.Upload(ctx, filename, uploader.UploadParams{Folder: "Hausy"})
-	fmt.Println("test", resp)
-
+	// Upload file to Cloudinary
+	resp, err := cld.Upload.Upload(ctx, filepath, uploader.UploadParams{Folder: "Hausy"})
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 
-	if resp.SecureURL != "" {
-		user.Image = resp.SecureURL
-	}
+	// cek respon dari cloudinary
+	// fmt.Println("respon from cloudinary", resp)
+
+	// set user image data from img url from cloudinary
+	user.Image = resp.SecureURL
 
 	if request.Full_Name != "" {
 		user.Full_Name = request.Full_Name
