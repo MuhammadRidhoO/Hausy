@@ -194,7 +194,8 @@ func (h *handlerUser) UpdateUser(w http.ResponseWriter, r *http.Request) {
 
 	// Upload file to Cloudinary ...
 	resp, err := cld.Upload.Upload(ctx, filename, uploader.UploadParams{Folder: "Hausy"})
-	
+	fmt.Println("test", resp)
+
 	if err != nil {
 		fmt.Println(err.Error())
 	}
@@ -202,6 +203,7 @@ func (h *handlerUser) UpdateUser(w http.ResponseWriter, r *http.Request) {
 	if resp.SecureURL != "" {
 		user.Image = resp.SecureURL
 	}
+
 	if request.Full_Name != "" {
 		user.Full_Name = request.Full_Name
 	}
@@ -232,7 +234,7 @@ func (h *handlerUser) UpdateUser(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(response)
 		return
 	}
-	
+
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
 		response := dto.ErrorResult{Code: http.StatusBadRequest, Message: err.Error()}
