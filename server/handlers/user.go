@@ -195,17 +195,22 @@ func (h *handlerUser) UpdateUser(w http.ResponseWriter, r *http.Request) {
 	// create new instance of cloudinary object using cloudinary credentials
 	cld, _ := cloudinary.NewFromParams(CLOUD_NAME, API_KEY, API_SECRET)
 
+	fmt.Println("Test cld",cld)
 	// Upload file to Cloudinary
 	resp, err := cld.Upload.Upload(ctx, filepath, uploader.UploadParams{Folder: "Hausy"})
 	if err != nil {
 		fmt.Println(err.Error())
 	}
+	fmt.Println("Test resp",resp)
 
 	// cek respon dari cloudinary
-	// fmt.Println("respon from cloudinary", resp)
 
 	// set user image data from img url from cloudinary
 	user.Image = resp.SecureURL
+
+	fmt.Println("Test resp.SecureURL",resp.SecureURL)
+	fmt.Println("Test user.Image",user.Image)
+
 
 	if request.Full_Name != "" {
 		user.Full_Name = request.Full_Name
