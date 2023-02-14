@@ -178,7 +178,7 @@ func (h *handlerUser) UpdateUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	dataContex := r.Context().Value("userImage")
+	dataContex := r.Context().Value("dataFile")
 	var filepath string
 	if dataContex.(string) != "" {
 		filepath = dataContex.(string)
