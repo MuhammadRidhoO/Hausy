@@ -232,8 +232,7 @@ func (h *handlerUser) UpdateUser(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(response)
 		return
 	}
-	userGet, err := h.UserRepository.GetUserLogin(data.Id)
-	userGet.Image = os.Getenv("PATH_FILE") + userGet.Image
+	
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
 		response := dto.ErrorResult{Code: http.StatusBadRequest, Message: err.Error()}
