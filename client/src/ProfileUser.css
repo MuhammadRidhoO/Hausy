@@ -1,0 +1,78 @@
+body {
+              background-color: #f1f1f1;
+          }
+          .allinfoidentity {
+              margin-top:0px;
+              display: flex;
+              justify-content: center;
+          }
+          .waiting3 {
+              background-color: green;
+              text-align: center;
+              border-radius: 8px;
+              width: 100px;
+              height: 30px;
+          }
+          .allidentityuser {
+              display: flex;
+              justify-content: center;
+              margin-top: 130px;
+          }
+          .usersbuy {
+              box-shadow: 0px 0px 5px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 20px;
+              width: 785px;
+          }
+          .allidentity {
+              display: flex;
+              flex-direction: column;
+          }
+          .personalinfo {
+              margin-bottom: 40px;
+          }
+          .identity{
+              display: flex;
+              flex-direction: column;
+          }
+          .preidentity {
+              display: flex;
+              margin-bottom: 15px;
+          }
+          .nameidentity {
+              margin-top: -10px;
+              font-size:12px ;
+              color: rgb(156, 156, 156);
+          }
+          .imgsize {
+              margin-bottom: 10px;
+          }
+          .buttonpay {
+              margin: 0px;
+          }
+          .placeeditphhoto {
+              background-color: orange;
+              border: 1px solid orange;
+              width: 280px;
+          }
+          .history {
+              margin: 100px 0px 20px 250px;
+          }
+          .history2 {
+              font-weight: bolder;
+          }
+          
+          .boking {
+              background-color: white;
+              display: flex;
+              justify-content: space-between;
+              width: 1035px;
+              height: 419px;
+              border: 1px solid black;
+              margin: 70px 300px 50px 250px;
+              padding: 0px 60px 0px 30px;
+              border-radius: 8px;
+              box-shadow: 0px 0px 1px;
+          }
