@@ -565,9 +565,6 @@ func (h *handlerTransaction) Notification(w http.ResponseWriter, r *http.Request
 	fmt.Println(notificationPayload, "Hallo Tset 123")
 	transaction, err := h.TransactionRepository.GetOneTransaction(orderId)
 
-	fmt.Println(transactionStatus, "halo1")
-	fmt.Println(fraudStatus, "halo 2")
-	fmt.Println(orderId, "halo 3")
 
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)

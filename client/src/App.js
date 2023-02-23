@@ -108,9 +108,9 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar/>
+        <Navbar />
         <Routes>
-          <Route exact path="/" element={<Home hotel={poperty}/>} />
+          <Route exact path="/" element={<Home hotel={poperty} />} />
           <Route exact path="/detailHausy/:id" element={<Detail hotel={poperty} setCheckHotel={setCheckHotel} checkHotel={checkHotel} />} />
 
           <Route element={<PrivateTenant />}>

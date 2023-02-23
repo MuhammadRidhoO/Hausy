@@ -13,7 +13,7 @@ function MyBookingApprove() {
     // console.log(Users)
 
     let { data: transaction, refetch} = useQuery("user", async () => {
-        const response = await API.get("/user-transactions/" + Users?.id)//localStorage.getItem("token"))
+        const response = await API.get("user-transactions/" + Users?.id)//localStorage.getItem("token"))
         return response.data.data
     })
     refetch()
