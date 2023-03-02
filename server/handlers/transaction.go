@@ -140,22 +140,6 @@ func (h *handlerTransaction) CreateTransaction(w http.ResponseWriter, r *http.Re
 	json.NewEncoder(w).Encode(response)
 }
 
-func convertTransactionResponse(r models.Transaction_Property) transactiondto.Response_Transaction {
-	return transactiondto.Response_Transaction{
-		Id:             r.Id,
-		User:           r.User,
-		Property:       r.Property,
-		Status_Payment: r.Status_Payment,
-		Check_In:       r.Check_In,
-		Check_Out:      r.Check_Out,
-	}
-}
-
-func convertTransactionDeleteResponse(r models.Transaction_Property) transactiondto.Response_Transaction {
-	return transactiondto.Response_Transaction{
-		Id: r.Id,
-	}
-}
 func SendMail(status_payment string, transaction models.Transaction_Property) {
 
 	//  if status != transaction.Status && status == "success" {
