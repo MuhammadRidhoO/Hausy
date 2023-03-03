@@ -89,7 +89,7 @@ function AddProperty() {
       <Container>
          <div>
             <div style={{ padding: "50px 0px 50px 0px" }}>
-               <h1 style={{ marginTop: 80 }}>Add Poperty</h1>
+               <h1 style={{ marginTop: 80 }}>Add Property</h1>
             </div>
             <Form
                className="alltripadmin"
@@ -268,7 +268,6 @@ function AddProperty() {
                         alignItems: "center",
                         justifyContent: "center",
                      }}
-                  // onSubmit={handleChangeAddPopertyAdmin}
                   >
                      Save
                   </Button>
