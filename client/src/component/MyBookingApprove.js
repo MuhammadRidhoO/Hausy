@@ -40,7 +40,7 @@ function MyBookingApprove() {
                                     <p style={{ width: 300 }}>{a.property?.address_property}</p>
 
                                     {(() => {
-                                        if (a.status_payment === "success") {
+                                        if (a.status_payment === "Success") {
                                             return (
                                                 <p className="text-success bg-success bg-gradient border-0 bg-opacity-25 fw-regular px-4 py-2 rounded-3 btn-sm"
                                                     style={{
@@ -52,7 +52,7 @@ function MyBookingApprove() {
                                                     Success
                                                 </p>
                                             )
-                                        } else if (a.status_payment === "pending") {
+                                        } else if (a.status_payment === "Pending") {
                                             return (
                                                 <p className="text-warning bg-warning bg-gradient border-0 bg-opacity-25 fw-regular px-4 py-2 rounded-3 btn-sm"
                                                     style={{
@@ -184,13 +184,13 @@ function MyBookingApprove() {
                                         </td>
                                         <td>:</td>
                                         {(() => {
-                                            if (a.status_payment === "success") {
+                                            if (a.status_payment === "Success") {
                                                 return (
 
                                                     <td style={{ fontWeight: "bold", color: "green" }}><FormatRupiah value={a.property?.price} /></td>
                                                 )
 
-                                            } else if (a.status_payment === "pending") {
+                                            } else if (a.status_payment === "Pending") {
                                                 return (
                                                     <td style={{ fontWeight: "bold", color: "rgb(255, 193, 7)" }}><FormatRupiah value={a.property?.price} /></td>
                                                 )
