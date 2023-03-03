@@ -21,10 +21,11 @@ function Navbarr() {
 
    const handleCloseRegister = () => setRegister(false);
    const handleRegister = () => setRegister(true)
-   let { data: profiles } = useQuery("ProfileUserViewNavbar", async () => {
+   let { data: profiles, refetch: imageRefetch } = useQuery("ProfileUserViewNavbar", async () => {
       const response = await API.get("profile")
       return response.data.data
    })
+   imageRefetch()
 
    const [signUp, setSignUp] = useState({
       full_name: "",
@@ -110,8 +111,6 @@ function Navbarr() {
       }
    })
 
-
-
    const [barCity, setBarCity] = useState(null)
    const [city, setCity] = useState("")
 
@@ -195,7 +194,7 @@ function Navbarr() {
                         >
                            <img
                               src={profiles?.image}
-                              alt="human"
+                              alt=""
                               style={{
                                  borderRadius: 40,
                                  height: 50,
